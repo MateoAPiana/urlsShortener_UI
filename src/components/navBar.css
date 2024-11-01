@@ -23,3 +23,8 @@
 .navbarItem:hover {
   opacity: 0.8;
 }
+
+.active {
+  opacity: 0.8;
+  pointer-events: none;
+}
