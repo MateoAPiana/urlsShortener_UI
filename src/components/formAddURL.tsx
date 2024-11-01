@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react'
 
 export function FromAddURL() {
   const [data, setData] = useState({ url: "", urlShorted: "" })
+  const [error, setError] = useState("")
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const info = Object.fromEntries(
@@ -13,7 +14,7 @@ export function FromAddURL() {
       const apiRes = await createNewURL({ url: info.url.toString() })
       setData({ url: info.url.toString(), urlShorted: apiRes.newURL })
     } catch (error) {
-
+      if (typeof error === "string") setError(error)
     }
   }
   return (

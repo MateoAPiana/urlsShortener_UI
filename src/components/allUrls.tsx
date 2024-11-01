@@ -5,13 +5,14 @@ import "./allUrls.css"
 
 export function AllUrls() {
   const [urlsList, setUrlsList] = useState<urlsListItem[]>([])
+  const [error, setError] = useState("")
   useEffect(() => {
     const getData = async () => {
       try {
         const data = await getURLs()
         setUrlsList(data)
       } catch (error) {
-
+        if (typeof error === "string") setError(error)
       }
     }
     getData()
@@ -19,6 +20,7 @@ export function AllUrls() {
 
   return (
     <div className="urlsTables">
+      <div className="error">{error}</div>
       <div className="headerTable">
         <p className="itemTable">Original URL</p>
         <p className="itemTable">URL shorted</p>
