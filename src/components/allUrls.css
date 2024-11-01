@@ -15,4 +15,10 @@
 
 .itemTable {
   padding: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.linkTable:hover {
+  opacity: 0.8;
 }

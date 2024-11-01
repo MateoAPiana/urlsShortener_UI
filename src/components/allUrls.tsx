@@ -28,7 +28,7 @@ export function AllUrls() {
           return (
             <div className="rowURL" key={index}>
               <p className="itemTable">{i.url_original}</p>
-              <p className="itemTable">{import.meta.env.VITE_URL_API}/redirect/{i.url_shorted}</p>
+              <a target="_blank" href={`${import.meta.env.VITE_URL_API}/redirect/${i.url_shorted}`} className="itemTable linkTable">{import.meta.env.VITE_URL_API}/redirect/{i.url_shorted}</a>
             </div>
           )
         })
