@@ -16,28 +16,23 @@ export function AllUrls() {
     }
     getData()
   }, [])
+
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Original URL</th>
-            <th>URL shorted</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            urlsList.map((i, index) => {
-              return (
-                <tr className="rowURL" key={index}>
-                  <td>{i.url_original}</td>
-                  <td>{i.url_shorted}</td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
+    <div className="urlsTables">
+      <div className="headerTable">
+        <p className="itemTable">Original URL</p>
+        <p className="itemTable">URL shorted</p>
+      </div>
+      {
+        urlsList.map((i, index) => {
+          return (
+            <div className="rowURL" key={index}>
+              <p className="itemTable">{i.url_original}</p>
+              <p className="itemTable">{import.meta.env.VITE_URL_API}/redirect/{i.url_shorted}</p>
+            </div>
+          )
+        })
+      }
     </div>
   )
 }

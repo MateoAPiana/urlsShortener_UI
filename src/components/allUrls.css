@@ -1,0 +1,18 @@
+.headerTable {
+  display: flex;
+  justify-content: space-around;
+}
+
+.rowURL {
+  display: flex;
+  background-color: #cb6040;
+}
+
+.rowURL:nth-child(2n) {
+  background-color: #F2E5BF;
+  color: #111;
+}
+
+.itemTable {
+  padding: 10px;
+}
