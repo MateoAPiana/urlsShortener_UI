@@ -19,6 +19,7 @@ export function FromAddURL() {
   }
   return (
     <form className='fromAddURL' action="" onSubmit={handleSubmit}>
+      <div className="error">{error}</div>
       <label htmlFor="url">Insert this the url</label>
       <input type="url" name="url" id="url" placeholder="https://youtube.com" required />
       <input className="addURLSubmit" type="submit" value="Send url" />

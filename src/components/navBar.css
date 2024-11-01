@@ -1,0 +1,25 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 10%;
+  background-color: #fd8b51;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbarItem {
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #944E3A;
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+.navbarItem:hover {
+  opacity: 0.8;
+}
