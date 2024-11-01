@@ -22,3 +22,7 @@
 .linkTable:hover {
   opacity: 0.8;
 }
+
+.QRButton {
+  margin: 5px;
+}
