@@ -1,7 +1,7 @@
 import "./home.css"
 export function Home() {
   return (
-    <div>
+    <div className="home">
       Simplify Your Links!
       <br />
       <p>Turn long links into short, easy-to-share URLs. With our URL shortener, you can customize, manage, and analyze your links all in one place. Perfect for social media, marketing, and anywhere you need a clean, direct link.</p>
