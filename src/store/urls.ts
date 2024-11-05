@@ -1,21 +1,18 @@
 import { create } from "zustand"
 import { devtools } from "zustand/middleware"
-import { urlRegister } from "../../types.d"
 
 interface State {
-  urls: urlRegister[],
-  addURL: (data: urlRegister) => void
+  user: boolean,
+  setUser: (data: boolean) => void
 }
 
-export const useGameStore = create<State>()(
+export const useUserStore = create<State>()(
   devtools(
-    (set, get) => {
+    (set) => {
       return {
-        urls: [],
-        addURL(data) {
-          const urls = get().urls
-          urls.push(data)
-          set({ urls: urls })
+        user: false,
+        setUser(data) {
+          set({ user: data })
         },
       }
     },

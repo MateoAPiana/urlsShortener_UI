@@ -1,8 +1,13 @@
 import { FormEvent, useState } from "react"
 import "./formLogin.css"
 import { login } from "../services/login"
+import { useNavigate } from "react-router-dom"
+import { useUserStore } from "../store/urls"
+
 export function FormLogin() {
   const [error, setError] = useState("")
+  const navigate = useNavigate()
+  const setUser = useUserStore(e => e.setUser)
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const info = Object.fromEntries(
@@ -10,8 +15,9 @@ export function FormLogin() {
     )
     if (info.password.toString() !== info.confirmPassword.toString()) return
     try {
-      const apiRes = await login({ userName: info.userName.toString(), password: info.password.toString() })
-      console.log(apiRes)
+      await login({ userName: info.userName.toString(), password: info.password.toString() })
+      setUser(true)
+      navigate("/")
     } catch (error) {
       if (typeof error === "string") setError(error)
     }

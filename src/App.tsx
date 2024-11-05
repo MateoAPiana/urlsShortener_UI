@@ -19,6 +19,7 @@ export default function App() {
           <Route element={<AllUrls />} path='/urls' />
           <Route element={<QR />} path='/qr/:url' />
           <Route element={<FormLogin />} path='/login' />
+          <Route element={<FormLogin />} path='/logout' />
         </Routes>
       </main>
     </>
