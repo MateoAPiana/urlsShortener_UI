@@ -16,19 +16,18 @@ export function NavBar() {
     <nav className="navBar">
       <NavLink className="navbarItem" to="/">Home</NavLink>
       {
-        user &&
-        <>
-          <NavLink className="navbarItem" to="/urls">All yours URLs</NavLink>
-          <NavLink className="navbarItem" to="/addURL">Create a new URL shorted</NavLink>
-          <button className="navbarItem" onClick={logout}>Logout</button>
-        </>
-      }
-      {
-        !user &&
-        <>
-          <NavLink className="navbarItem" to="/login">Login</NavLink>
-          <NavLink className="navbarItem" to="/register">Register</NavLink>
-        </>
+        user
+          ?
+          <>
+            <NavLink className="navbarItem" to="/urls">All yours URLs</NavLink>
+            <NavLink className="navbarItem" to="/addURL">Create a new URL shorted</NavLink>
+            <button className="navbarItem" onClick={logout}>Logout</button>
+          </>
+          :
+          <>
+            <NavLink className="navbarItem" to="/login">Login</NavLink>
+            <NavLink className="navbarItem" to="/register">Register</NavLink>
+          </>
       }
     </nav>
   )
