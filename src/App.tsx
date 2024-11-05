@@ -5,6 +5,7 @@ import { Home } from './components/home'
 import { AllUrls } from './components/allUrls'
 import { NavBar } from './components/navbar'
 import { QR } from './components/qr'
+import { FormLogin } from './components/formLogin'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route element={<FromAddURL />} path='/addURL' />
           <Route element={<AllUrls />} path='/urls' />
           <Route element={<QR />} path='/qr/:url' />
+          <Route element={<FormLogin />} path='/login' />
         </Routes>
       </main>
     </>

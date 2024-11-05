@@ -1,0 +1,43 @@
+.fromLogin {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.inputFormLogin {
+  font-family: inherit;
+  border: none;
+  padding: 10px;
+  width: 90%;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.inputFormLogin:hover {
+  background-color: #ddd;
+}
+
+.inputFormLogin:focus-visible {
+  border: 1px solid #CB6040;
+}
+
+.addURLSubmit {
+  min-width: 33%;
+  background-color: #cb6040;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-family: poppins;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px;
+}
+
+.addURLSubmit:hover {
+  opacity: 0.8;
+}
