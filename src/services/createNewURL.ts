@@ -1,8 +1,7 @@
-import "../../types.d"
 export async function createNewURL({ url }: { url: string }) {
   try {
     const token = await window.cookieStore.get("access_token")
-    return fetch(import.meta.env.VITE_URL_API, {
+    return fetch(`${import.meta.env.VITE_URL_API}/url/create`, {
       method: "POST",
       body: JSON.stringify({ url, token: token?.value }),
       headers: {
@@ -16,8 +15,7 @@ export async function createNewURL({ url }: { url: string }) {
       .then((json) => {
         return json
       })
-  } catch (error) {
-    console.log(error)
+  } catch {
     return new Error("Error to send the data")
   }
 }
