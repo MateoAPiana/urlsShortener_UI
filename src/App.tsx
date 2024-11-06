@@ -7,8 +7,19 @@ import { NavBar } from './components/navbar'
 import { QR } from './components/qr'
 import { FormLogin } from './components/formLogin'
 import { FormRegister } from './components/formRegister'
+import { useEffect } from 'react'
+import { useUserStore } from './store/urls'
+import { getUser } from './services/getUser'
 
 export default function App() {
+  const setUser = useUserStore(e => e.setUser)
+  useEffect(() => {
+    const getData = async () => {
+      const initialUserValue = await getUser()
+      setUser(initialUserValue)
+    }
+    getData()
+  }, [])
   return (
     <>
       <NavBar />

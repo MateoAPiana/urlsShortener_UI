@@ -2,6 +2,7 @@ export async function register({ userName, password }: { userName: string, passw
   return fetch(`${import.meta.env.VITE_URL_API}/user`, {
     method: "POST",
     body: JSON.stringify({ userName, password }),
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
     }

@@ -2,6 +2,7 @@ export async function login({ userName, password }: { userName: string, password
   return fetch(`${import.meta.env.VITE_URL_API}/user/login`, {
     method: "POST",
     body: JSON.stringify({ userName, password }),
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
     }
