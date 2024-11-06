@@ -4,7 +4,7 @@ import { login } from "../services/login"
 import { useNavigate } from "react-router-dom"
 import { useUserStore } from "../store/urls"
 
-export function FormLogin() {
+export function FormRegister() {
   const [error, setError] = useState("")
   const navigate = useNavigate()
   const setUser = useUserStore(e => e.setUser)
@@ -13,6 +13,7 @@ export function FormLogin() {
     const info = Object.fromEntries(
       new FormData(e.currentTarget)
     )
+    if (info.password.toString() !== info.confirmPassword.toString()) return
     try {
       await login({ userName: info.userName.toString(), password: info.password.toString() })
       setUser(true)
@@ -28,7 +29,9 @@ export function FormLogin() {
       <input className="inputFormLogin" type="userName" name="userName" id="userName" placeholder="JohnDoe" required />
       <label htmlFor="password">Your password</label>
       <input className="inputFormLogin" type="password" name="password" id="password" placeholder="mySecretPassword123" required />
-      <input className="addURLSubmit" type="submit" value="Login" />
+      <label htmlFor="confirmPassword">Confirm your password</label>
+      <input className="inputFormLogin" type="password" name="confirmPassword" id="confirmPassword" placeholder="mySecretPassword123" required />
+      <input className="addURLSubmit" type="submit" value="Register" />
     </form>
   )
 }

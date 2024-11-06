@@ -6,6 +6,7 @@ import { AllUrls } from './components/allUrls'
 import { NavBar } from './components/navbar'
 import { QR } from './components/qr'
 import { FormLogin } from './components/formLogin'
+import { FormRegister } from './components/formRegister'
 
 export default function App() {
   return (
@@ -19,7 +20,7 @@ export default function App() {
           <Route element={<AllUrls />} path='/urls' />
           <Route element={<QR />} path='/qr/:url' />
           <Route element={<FormLogin />} path='/login' />
-          <Route element={<FormLogin />} path='/logout' />
+          <Route element={<FormRegister />} path='/register' />
         </Routes>
       </main>
     </>

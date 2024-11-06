@@ -1,5 +1,5 @@
-export async function login({ userName, password }: { userName: string, password: string }) {
-  return fetch(`${import.meta.env.VITE_URL_API}/user/login`, {
+export async function register({ userName, password }: { userName: string, password: string }) {
+  return fetch(`${import.meta.env.VITE_URL_API}/user`, {
     method: "POST",
     body: JSON.stringify({ userName, password }),
     headers: {

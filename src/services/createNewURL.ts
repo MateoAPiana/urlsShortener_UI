@@ -1,9 +1,9 @@
 export async function createNewURL({ url }: { url: string }) {
   try {
-    const token = await window.cookieStore.get("access_token")
     return fetch(`${import.meta.env.VITE_URL_API}/url/create`, {
       method: "POST",
-      body: JSON.stringify({ url, token: token?.value }),
+      body: JSON.stringify({ url }),
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
       }
