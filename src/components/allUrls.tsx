@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
-import { urlsListItem } from "../../types"
+import { urlsListItem } from "../../types.d"
 import { getURLs } from "../services/getURLs"
 import "./allUrls.css"
 import { QRIcon } from "./QRIcon"
-import { Link } from "react-router-dom"
+import { createSearchParams, Link, useNavigate } from "react-router-dom"
+import { DeleteIcon } from "./deleteIcon"
 
 export function AllUrls() {
   const [urlsList, setUrlsList] = useState<urlsListItem[]>([])
   const [error, setError] = useState("")
+  const navigate = useNavigate()
   useEffect(() => {
     const getData = async () => {
       try {
         const data = await getURLs()
+        if (!data) return navigate("/")
         if (typeof data === "string") return setError(error)
         setUrlsList(data)
       } catch (error) {
@@ -31,17 +34,23 @@ export function AllUrls() {
       {
         urlsList[0]
           ? urlsList.map((i, index) => {
-            let url: string
-            if (i.url_original.startsWith("https")) url = i.url_original.slice(8)
-            else url = i.url_original.slice(7)
-            console.log(url)
+            const urlRedirect = import.meta.env.VITE_URL_API + "/redirect/" + i.url_shorted
+            const url = encodeURIComponent(urlRedirect.startsWith("https")
+              ? urlRedirect.slice(8)
+              : urlRedirect.slice(7)
+            )
             return (
               <div className="rowURL" key={index}>
                 <Link to={`/qr/${url}`} className="QRButton">
                   <QRIcon />
                 </Link>
+                <button className="QRButton">
+                  <DeleteIcon />
+                </button>
                 <p className="itemTable">{i.url_original}</p>
-                <a target="_blank" href={`${import.meta.env.VITE_URL_API}/redirect/${i.url_shorted}`} className="itemTable linkTable">{import.meta.env.VITE_URL_API}/redirect/{i.url_shorted}</a>
+                <a rel="noreferrer" target="_blank" href={urlRedirect} className="itemTable linkTable">
+                  {import.meta.env.VITE_URL_API}/redirect/{i.url_shorted}
+                </a>
               </div>
             )
           })
