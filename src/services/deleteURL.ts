@@ -1,6 +1,7 @@
 export function deleteURL(url: string) {
   return fetch(`${import.meta.env.VITE_URL_API}/${url}`, {
-    method: "DELETE"
+    method: "DELETE",
+    credentials: "include"
   })
     .then(res => {
       if (res.ok) return res.json()
