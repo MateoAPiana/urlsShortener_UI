@@ -3,8 +3,9 @@ import { urlsListItem } from "../../types.d"
 import { getURLs } from "../services/getURLs"
 import "./allUrls.css"
 import { QRIcon } from "./QRIcon"
-import { createSearchParams, Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { DeleteIcon } from "./deleteIcon"
+import { deleteURL } from "../services/deleteURL"
 
 export function AllUrls() {
   const [urlsList, setUrlsList] = useState<urlsListItem[]>([])
@@ -23,6 +24,16 @@ export function AllUrls() {
     }
     getData()
   }, [])
+
+  const handleDelete = async (url: string) => {
+    try {
+      const dbRes = await deleteURL(url)
+      if (dbRes.error) setError(dbRes.error)
+      else setUrlsList(urlsList.filter(u => !u.url_shorted.endsWith(url)))
+    } catch {
+      setError("Error deleting the URL, try again later")
+    }
+  }
 
   return (
     <div className="urlsTables">
@@ -44,7 +55,11 @@ export function AllUrls() {
                 <Link to={`/qr/${url}`} className="QRButton">
                   <QRIcon />
                 </Link>
-                <button className="QRButton">
+                <button className="QRButton" onClick={() => {
+                  handleDelete(i.url_shorted.startsWith("https")
+                    ? urlRedirect.slice(32)
+                    : urlRedirect.slice(31))
+                }}>
                   <DeleteIcon />
                 </button>
                 <p className="itemTable">{i.url_original}</p>
