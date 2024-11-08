@@ -45,7 +45,7 @@ export function AllUrls() {
       {
         urlsList[0]
           ? urlsList.map((i, index) => {
-            const urlRedirect = import.meta.env.VITE_URL_API + "/redirect/" + i.url_shorted
+            const urlRedirect = import.meta.env.VITE_URL_API + "/" + i.url_shorted
             const url = encodeURIComponent(urlRedirect.startsWith("https")
               ? urlRedirect.slice(8)
               : urlRedirect.slice(7)
@@ -56,15 +56,13 @@ export function AllUrls() {
                   <QRIcon />
                 </Link>
                 <button className="QRButton" onClick={() => {
-                  handleDelete(i.url_shorted.startsWith("https")
-                    ? urlRedirect.slice(32)
-                    : urlRedirect.slice(31))
+                  handleDelete(i.url_shorted)
                 }}>
                   <DeleteIcon />
                 </button>
                 <p className="itemTable">{i.url_original}</p>
                 <a rel="noreferrer" target="_blank" href={urlRedirect} className="itemTable linkTable">
-                  {import.meta.env.VITE_URL_API}/redirect/{i.url_shorted}
+                  {urlRedirect}
                 </a>
               </div>
             )

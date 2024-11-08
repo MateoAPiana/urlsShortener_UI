@@ -5,7 +5,8 @@ export type urlRegister = {
 
 export type urlsListItem = {
   url_original: string
-  url_shorted: string
+  url_shorted: string,
+  countVisited: number
 }
 
 declare global {
