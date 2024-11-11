@@ -55,10 +55,10 @@ export function AllUrls() {
                 <Link to={`/qr/${url}`} className="QRButton">
                   <QRIcon />
                 </Link>
-                <button className="QRButton" onClick={() => {
+                <button className="QRButton deleteButton" onClick={() => {
                   handleDelete(i.url_shorted)
                 }}>
-                  <DeleteIcon />
+                  <DeleteIcon color={index % 2 === 0 ? "#DEDFDC" : "#3B5562"} />
                 </button>
                 <p className="itemTable">{i.url_original}</p>
                 <a rel="noreferrer" target="_blank" href={urlRedirect} className="itemTable linkTable">

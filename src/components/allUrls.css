@@ -1,15 +1,18 @@
 .headerTable {
+  margin-top: 12dvh;
   display: flex;
   justify-content: space-around;
+  color: #DEDFDC;
 }
 
 .rowURL {
   display: flex;
-  background-color: #cb6040;
+  background-color: #5C6C6C;
+  color: #DEDFDC;
 }
 
 .rowURL:nth-child(2n) {
-  background-color: #F2E5BF;
+  background-color: #DEDFDC;
   color: #111;
 }
 
