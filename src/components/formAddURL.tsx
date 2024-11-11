@@ -1,9 +1,10 @@
+import { useNavigate } from "react-router-dom"
 import { createNewURL } from "../services/createNewURL"
 import "./formAddURL.css"
 import { FormEvent, useState } from 'react'
 
 export function FromAddURL() {
-  const [data, setData] = useState({ url: "", urlShorted: "" })
+  const navigate = useNavigate()
   const [error, setError] = useState("")
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -11,19 +12,21 @@ export function FromAddURL() {
       new FormData(e.currentTarget)
     )
     try {
-      const apiRes = await createNewURL({ url: info.url.toString() })
-      setData({ url: info.url.toString(), urlShorted: apiRes.newURL })
+      await createNewURL({ url: info.url.toString() })
+      navigate("/urls")
     } catch (error) {
       if (typeof error === "string") setError(error)
     }
   }
   return (
-    <form className='fromAddURL' action="" onSubmit={handleSubmit}>
-      <div className="error">{error}</div>
-      <label htmlFor="url">Insert this the url</label>
-      <input type="url" name="url" id="url" placeholder="https://youtube.com" required />
-      <input className="addURLSubmit" type="submit" value="Send url" />
-      {data.urlShorted && <p>{data.url}<br />{data.urlShorted}</p>}
-    </form>
+    <div className="addURL_container">
+      <img src="/imageAddURL.jpg" alt="" />
+      <form className='fromAddURL' action="" onSubmit={handleSubmit}>
+        <div className="error">{error}</div>
+        <label htmlFor="url">Insert this the url</label>
+        <input type="url" name="url" id="url" placeholder="https://youtube.com" required />
+        <input className="addURLSubmit" type="submit" value="Send url" />
+      </form>
+    </div>
   )
 }

@@ -1,3 +1,8 @@
+.addURL_container {
+  margin-top: 20dvh;
+  display: flex;
+}
+
 .fromAddURL {
   min-width: 500px;
   display: flex;
@@ -6,6 +11,10 @@
   justify-content: center;
   gap: 10px;
   border-radius: 10px;
+}
+
+.fromAddURL label {
+  color: #DEDFDC;
 }
 
 #url {
@@ -23,12 +32,12 @@
 }
 
 #url:focus-visible {
-  border: 1px solid #CB6040;
+  border: 1px solid #3B5562;
 }
 
 .addURLSubmit {
   min-width: 33%;
-  background-color: #cb6040;
+  background-color: #3B5562;
   color: #fff;
   border: none;
   border-radius: 5px;
