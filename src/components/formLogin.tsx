@@ -22,13 +22,16 @@ export function FormLogin() {
     }
   }
   return (
-    <form className='fromLogin' action="" onSubmit={handleSubmit} >
-      {error}
-      <label htmlFor="userName">Your username</label>
-      <input className="inputFormLogin" type="userName" name="userName" id="userName" placeholder="JohnDoe" required />
-      <label htmlFor="password">Your password</label>
-      <input className="inputFormLogin" type="password" name="password" id="password" placeholder="mySecretPassword123" required />
-      <input className="addURLSubmit" type="submit" value="Login" />
-    </form>
+    <div className="login_container">
+      <img src="/imageLogin.png" alt="" />
+      <form className='fromLogin' action="" onSubmit={handleSubmit} >
+        {error}
+        <label htmlFor="userName">Your username</label>
+        <input className="inputFormLogin" type="userName" name="userName" id="userName" placeholder="JohnDoe" required />
+        <label htmlFor="password">Your password</label>
+        <input className="inputFormLogin" type="password" name="password" id="password" placeholder="mySecretPassword123" required />
+        <input className="addURLSubmit" type="submit" value="Login" />
+      </form>
+    </div>
   )
 }

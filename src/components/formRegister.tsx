@@ -23,15 +23,18 @@ export function FormRegister() {
     }
   }
   return (
-    <form className='fromLogin' action="" onSubmit={handleSubmit} >
-      {error}
-      <label htmlFor="userName">Your username</label>
-      <input className="inputFormLogin" type="userName" name="userName" id="userName" placeholder="JohnDoe" required />
-      <label htmlFor="password">Your password</label>
-      <input className="inputFormLogin" type="password" name="password" id="password" placeholder="mySecretPassword123" required />
-      <label htmlFor="confirmPassword">Confirm your password</label>
-      <input className="inputFormLogin" type="password" name="confirmPassword" id="confirmPassword" placeholder="mySecretPassword123" required />
-      <input className="addURLSubmit" type="submit" value="Register" />
-    </form>
+    <div className="register_container">
+      <img src="/imageRegister.png" alt="" />
+      <form className='fromLogin' action="" onSubmit={handleSubmit} >
+        {error}
+        <label htmlFor="userName">Your username</label>
+        <input className="inputFormLogin" type="userName" name="userName" id="userName" placeholder="JohnDoe" required />
+        <label htmlFor="password">Your password</label>
+        <input className="inputFormLogin" type="password" name="password" id="password" placeholder="mySecretPassword123" required />
+        <label htmlFor="confirmPassword">Confirm your password</label>
+        <input className="inputFormLogin" type="password" name="confirmPassword" id="confirmPassword" placeholder="mySecretPassword123" required />
+        <input className="addURLSubmit" type="submit" value="Register" />
+      </form>
+    </div>
   )
 }

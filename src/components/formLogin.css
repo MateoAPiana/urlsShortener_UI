@@ -1,3 +1,13 @@
+.login_container {
+  margin-top: 30dvh;
+  display: flex;
+}
+
+.register_container {
+  margin-top: 12dvh;
+  display: flex;
+}
+
 .fromLogin {
   min-width: 500px;
   display: flex;
@@ -6,6 +16,10 @@
   justify-content: center;
   gap: 10px;
   border-radius: 10px;
+}
+
+.fromLogin label {
+  color: #DEDFDC;
 }
 
 .inputFormLogin {
@@ -23,12 +37,12 @@
 }
 
 .inputFormLogin:focus-visible {
-  border: 1px solid #CB6040;
+  border: 1px solid #3B5562;
 }
 
 .addURLSubmit {
   min-width: 33%;
-  background-color: #cb6040;
+  background-color: #3B5562;
   color: #fff;
   border: none;
   border-radius: 5px;
