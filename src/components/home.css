@@ -1,10 +1,29 @@
+.home_container {
+  width: 100dvw;
+  min-height: 100dvh;
+  /* max-width: 50dvw; */
+  background-image: url("/Tplantilla.png");
+  background-size: cover;
+  display: flex;
+}
+
 .home {
-  max-width: 50dvw;
+  margin: auto;
+  margin-top: 8%;
+  max-width: 45dvw;
+}
+
+#imageHome {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .subtitle {
-  color: #944e3a;
+  font-size: 24px;
+  color: #557D8D;
   text-align: center;
+  margin-top: 10px;
 }
 
 .listHome {

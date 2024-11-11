@@ -22,9 +22,8 @@ export default function App() {
   }, [])
   return (
     <>
-      <NavBar />
       <main className='App'>
-        <h1>Urls shortener</h1>
+        <NavBar />
         <Routes>
           <Route element={<Home />} path='/' />
           <Route element={<FromAddURL />} path='/addURL' />

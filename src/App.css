@@ -4,32 +4,36 @@
 ::after,
 ::before {
   box-sizing: border-box;
+  border: none;
   padding: 0;
   margin: 0;
-}
-
-body {
-  font-family: Montserrat;
-  background-color: #944E3A;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100dvh;
+  color: #3B5562;
+  font-size: 20px;
 }
 
 .App {
+  font-family: Montserrat;
+  background-color: #546472;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  height: 100dvh;
+}
+
+/* .App {
   padding: 15px;
-  background-color: #fd8b51;
+  background-color: #8CADBA;
   border-radius: 10px;
   max-width: 80dvw;
   margin: 10px;
   margin-top: 13%;
-}
+} */
 
 h1 {
-  color: #944e3a;
+  color: #557D8D;
   font-size: 40px;
   text-align: center;
 }

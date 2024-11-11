@@ -3,17 +3,19 @@
   top: 0;
   left: 0;
   width: 100dvw;
-  height: 10%;
-  background-color: #fd8b51;
+  height: 10dvh;
+  background-color: #5C6C6C;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: #dedfdc;
+  box-shadow: 0px 0px 10px 1px #1118;
 }
 
 .navbarItem {
   padding: 8px;
   border-radius: 8px;
-  background-color: #944E3A;
+  background-color: #3B5562;
   text-decoration: none;
   color: inherit;
   font-size: 20px;
