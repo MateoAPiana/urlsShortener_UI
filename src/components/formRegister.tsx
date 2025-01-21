@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react"
 import "./formLogin.css"
-import { login } from "../services/login"
+import { register } from "../services/register"
 import { useNavigate } from "react-router-dom"
 import { useUserStore } from "../store/urls"
 
@@ -15,7 +15,7 @@ export function FormRegister() {
     )
     if (info.password.toString() !== info.confirmPassword.toString()) return
     try {
-      await login({ userName: info.userName.toString(), password: info.password.toString() })
+      await register({ userName: info.userName.toString(), password: info.password.toString() })
       setUser(true)
       navigate("/")
     } catch (error) {
