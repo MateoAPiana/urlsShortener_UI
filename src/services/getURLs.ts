@@ -4,6 +4,7 @@ export async function getURLs() {
   try {
     return fetch(`${import.meta.env.VITE_URL_API}/url/read`, {
       credentials: 'include',
+      Cookie: await window.cookieStore.get("accessToken")
     })
       .then(res => {
         if (res.ok) return res.json()
