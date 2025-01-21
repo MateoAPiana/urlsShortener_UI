@@ -1,10 +1,17 @@
 import { urlsListItem } from "../../types"
 
 export async function getURLs() {
+  console.log(await window.cookieStore.get("access_token"))
   try {
     return fetch(`${import.meta.env.VITE_URL_API}/url/read`, {
+      method: "POST",
+      body: JSON.stringify({
+        cookie: await window.cookieStore.get("access_token")
+      }),
       credentials: 'include',
-      Cookie: await window.cookieStore.get("accessToken")
+      headers: {
+        "Content-Type": "application/json",
+      }
     })
       .then(res => {
         if (res.ok) return res.json()
